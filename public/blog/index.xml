@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AtoZ - devlog</title>
+    <link>https://minocrafft.io/blog/</link>
+    <description>Recent content on AtoZ - devlog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <managingEditor>minocrafft@gmail.com (Minho Kim)</managingEditor>
+    <webMaster>minocrafft@gmail.com (Minho Kim)</webMaster>
+    <copyright>&amp;copy; 2023 Minho Kim Powered by [Hugo](https://gohugo.io/)</copyright>
+    <lastBuildDate>Wed, 03 May 2023 22:13:25 +0900</lastBuildDate><atom:link href="https://minocrafft.io/blog/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>
