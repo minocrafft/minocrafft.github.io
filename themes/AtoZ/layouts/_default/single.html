@@ -1,0 +1,73 @@
+{{ define "main" }}
+{{ $categories := index .Params.categories 0 }}
+
+<section class="section">
+  <article>
+    <div class="columns is-centered">
+      <div class="column max-single">
+        <div class="columns is-vcentered is-mobile" style="margin-bottom: -1.5em;">
+            <div class="column is-narrow">
+              <time>{{ .PublishDate.Format "January 2, 2006" }}</time>
+            </div>
+            <div class="column">
+                🖋 In <a href="{{ "categories/" | relURL }}{{ . | urlize }}">{{ $categories }}</a>
+            </div>
+        </div>
+        <h1 class="title is-1" style="margin: 20px 0px 20px; padding: 0px 0px 20px;">{{ .Title }}</h1>
+        <div class="title subtitle is-6">
+            <div class="title-tag">
+              🏷 tags.
+              {{ range $idx, $tag := .Params.tags }}
+              {{- if gt $idx 0 }}, {{ end }}<a href="{{ "tags/" | relURL }}{{ $tag | urlize }}">#{{ $tag }}</a>
+              {{- end }}
+            </div>
+            <!-- <div class="column"> -->
+            <!--   <div class="columns is-vcentered is-mobile"> -->
+            <!--     {{ with .Site.Author.image }} -->
+            <!--     <div class="column is-narrow"><img src="{{ . }}" class="author-image"></div> -->
+            <!--     {{ end }} -->
+            <!--     <div class="column"> -->
+            <!--       <p>{{ .Site.Author.name }}</p> -->
+            <!--     </div> -->
+            <!--   </div> -->
+            <!-- </div> -->
+        </div>
+        {{ with .Params.images }}
+        <figure class="title-image">
+            <img src="{{ index . 0 }}" alt="">
+        </figure>
+        {{ end }}
+        <div class="content">
+          {{ .Content }}
+        </div>
+      </div>
+    </div>
+  </article>
+</section>
+<section class="section">
+  <div class="columns is-centered">
+    <div class="column max-single">
+      <div class="columns is-mobile">
+        <div class="column has-text-left">
+          {{ with .PrevInSection }}
+            {{ $prev_cat := index .Params.categories 0 }}
+            {{ if and $prev_cat (eq $prev_cat $categories) }}
+              <p>◀︎ Previous</p>
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+            {{ end }}
+          {{ end }}
+        </div>
+        <div class="column has-text-right">
+          {{ with .NextInSection }}
+            {{ $next_cat := index .Params.categories 0 }}
+            {{ if and $next_cat (eq $next_cat $categories) }}
+              <p>Next ▶︎</p>
+              <a href="{{ .Permalink }}">{{ .Title }}</a>
+            {{ end }}
+          {{ end }}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{{ end }}

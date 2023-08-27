@@ -1,0 +1,17 @@
+<footer class="footer">
+  <div class="container">
+      <div class="columns has-text-centered">
+        {{ range .Site.Menus.footer }}
+          <div class="column is-narrow">
+            <a href="{{ .URL }}" class="">{{ .Name }}</a>
+          </div>
+        {{ end }}
+        {{ range .Site.Menus.social }}
+          <div class="column is-narrow is-footer-icon" style>
+            <a href="{{ .URL }}"><span class="icon">{{ .Pre }}</span></a>
+          </div>
+        {{ end }}
+      </div>
+    <span>{{ site.Copyright | markdownify }}</span>
+  </div>
+</footer>
